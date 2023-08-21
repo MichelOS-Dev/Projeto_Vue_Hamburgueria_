@@ -1,5 +1,6 @@
 <template>
     <div id="burger-table" v-if="burgers">
+      <Message :msg="msg" v-show="msg" />
       <div>
         <div id="burger-table-heading">
           <div class="order-id">#:</div>
@@ -37,34 +38,39 @@
     </div>
   </template>
   <script>
+    import Message from './Message.vue';
+
     export default {
       name: "Dashboard",
       data() {
         return {
           burgers: null,
           burger_id: null,
-          status: []
+          status: [],
+          msg: null
         }
+      },components:{
+        Message
       },
       methods: {
         async getPedidos() {
-          const req = await fetch('http://localhost:3000/burgers')
+          const req = await fetch('http://localhost:3000/burgers');
   
-          const data = await req.json()
+          const data = await req.json();
   
-          this.burgers = data
+          this.burgers = data;
   
           // Resgata os status de pedidos
-          this.getStatus()
+          this.getStatus();
   
         },
         async getStatus() {
   
-          const req = await fetch('http://localhost:3000/status')
+          const req = await fetch('http://localhost:3000/status');
   
-          const data = await req.json()
+          const data = await req.json();
   
-          this.status = data
+          this.status = data;
   
         },
         async deleteBurger(id) {
@@ -73,9 +79,15 @@
             method: "DELETE"
           });
   
-          const res = await req.json()
+          const res = await req.json();
+
+          //colocar uma mensagem no sistema
+          this.msg = `Pedido removivo com sucesso!`;
+
+          //limpar msg
+          setTimeout(() => this.msg = "",3000);
   
-          this.getPedidos()
+          this.getPedidos();
   
         },
         async updateBurger(event, id) {
@@ -90,14 +102,20 @@
             body: dataJson
           });
   
-          const res = await req.json()
+          const res = await req.json();
+
+          //colocar uma mensagem no sistema
+          this.msg = `O pedido Nº ${res.id} foi atualizado para ${res.status}!`;
+
+          //limpar msg
+          setTimeout(() => this.msg = "",3000);
   
-          console.log(res)
+          console.log(res);
   
         }
       },
       mounted () {
-      this.getPedidos()
+      this.getPedidos();
       }
     }
   </script>

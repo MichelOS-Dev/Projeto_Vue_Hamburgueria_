@@ -87,8 +87,43 @@
         "Cebola roxa",
         "Tomate"
       ],
-      "status": "Solicitado",
+      "status": "Em produção",
       "id": 1
+    },
+    {
+      "nome": "Benigno",
+      "carne": "Maminha",
+      "pao": "Integral",
+      "opcionais": [
+        "Bacon"
+      ],
+      "status": "Solicitado",
+      "id": 4
+    },
+    {
+      "nome": "Rafel",
+      "carne": "Alcatra",
+      "pao": "Italiano Branco",
+      "opcionais": [
+        "Bacon",
+        "Salame",
+        "Cebola roxa"
+      ],
+      "status": "Em produção",
+      "id": 5
+    },
+    {
+      "nome": "Fabiola",
+      "carne": "Picanha",
+      "pao": "Parmesão e Orégano",
+      "opcionais": [
+        "Bacon",
+        "Cheddar",
+        "Tomate",
+        "Cebola roxa"
+      ],
+      "status": "Solicitado",
+      "id": 7
     }
   ]
 }
