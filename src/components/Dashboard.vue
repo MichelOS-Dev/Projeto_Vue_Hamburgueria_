@@ -60,7 +60,7 @@
   
           this.burgers = data;
   
-          // Resgata os status de pedidos
+          // Resgata os status de pedidos no db.json
           this.getStatus();
   
         },
